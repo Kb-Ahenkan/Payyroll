@@ -1,0 +1,106 @@
+ #include <iostream>
+
+
+using namespace std;
+
+int main()
+{
+    string firstname, secondname, lastname, fullname, address, ID, Birthdate, Phonenumber, email, Jobposition, workingstatus, Department;
+    int Salary, Hoursworked, Overtime;
+    double Tax, Netwage;
+
+
+    string greeting = "AHENKAN'S PAYROLL"; //This is the name of the payroll software
+    cout << greeting << endl;
+
+    cout << endl;
+    cout << endl;
+
+    cout << "PERSONAL INFORMATION" << endl;
+    cout << "0Information Provided Here Must Be Accurate To Prevent Any Inconvenience" << endl; //Any information provided here must be accurate to prevent any problem
+    cout << endl;
+    cout << "First name:" << endl;
+    cin >> firstname;
+
+    cout << "Second name:" << endl;
+    cin >> secondname;
+
+    cout << "Last name:" << endl;
+    cin>> lastname;
+
+    fullname =  firstname + " "   + secondname + " " + lastname;
+
+    cout <<  "Fullname: " << fullname << endl;
+
+    cout << "Residential address:" << endl;
+    cin >> address;
+
+    cout << "Tax identification number:" <<  endl;
+    cin >> ID;
+
+    cout << "Date of birth:" << endl;
+    cin >> Birthdate;
+
+    cout << "Phone number:" << endl;
+    cin >> Phonenumber;
+
+    cout << "Email address:" << endl;
+    cin >> email;
+
+    cout << "EMPLOYMENT INFORMATION" << endl;
+
+    cout << " Job position:" << endl;
+    cin >>  Jobposition;
+
+    cout << "Working status(Part time or Full time):" << endl;
+    cin >> workingstatus;
+
+    cout << "Department:" << endl;
+    cin >> Department;
+
+    cout << "SALARY INFORMATION" << endl;
+
+    cout << "Total hours worked:" << endl; // No one works for more than 40 hours in this company. If the user inputs something more than 40 hours his credentials will be sent to the Board for inspection
+    cin >> Hoursworked;
+
+     if (Hoursworked > 40) {
+        cerr <<  "No one works for more than 40 hours in this company. Your details are being sent to the Board for inspection";
+        cin.clear();
+        exit(1);
+     }
+    else {
+        cout << Hoursworked << " hours was the number of hours used" << endl;
+    }
+    cout << "Number of times worked overtime:" << endl; // No one does overtime for more than 5 times in this company. If the user inputs something more than 5 times his credentials has to be sent to the Board for inspection immediately
+    cin >> Overtime;
+    if (Overtime > 5) {
+        cerr << "No one can do Overtime for more than 5 times. Your details are being sent to the board for inspection";
+        cin.clear();
+        exit(1);
+    }
+    else {
+        cout << Overtime << " times" << endl;
+    }
+    Salary =  Hoursworked * 20  +  Overtime * 1.5 * 20;
+     cout << "Employee's salary is: " << Salary << endl;;
+
+    cout << "EMPLOYEES'S GROSS WAGE = " << Salary << endl;
+
+
+    cout << "Tax taken by government = 7%" << endl;
+    cout << "Tax taken for med care = 4% " << endl;
+    cout << "Tax for social security = 2%" << endl;
+
+    Tax = 0.13 * Salary;
+    cout << "Tax collected: " << Tax << endl;
+
+    Netwage = Salary - Tax;
+
+    cout <<"EMPLOYEE'S NETWAGE IS: " << Netwage << endl;
+
+    cout << endl;
+
+    cout << "An amount of " << Netwage << " is being credited into your account. Financial transaction ID:38049301351. Download the Ahenkan App for a Faster and Easier experience." << endl;
+
+    return 0;
+}
